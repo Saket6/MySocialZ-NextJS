@@ -6,19 +6,19 @@ import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
 
-    apiKey: "AIzaSyDNx_JtrJRERtWRO8KKtkmezBAUT-5yDe4",
+    apiKey: process.env.NEXT_PUBLIC_API_KEY,
 
-    authDomain: "social-media-app-5a8be.firebaseapp.com",
+    authDomain: process.env.NEXT_PUBLIC_AUTH_DOMAIN,
 
-    projectId: "social-media-app-5a8be",
+    projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
 
-    storageBucket: "social-media-app-5a8be.appspot.com",
+    storageBucket: process.env.NEXT_PUBLIC_STORAGE,
 
-    messagingSenderId: "864882149162",
+    messagingSenderId: process.env.NEXT_PUBLIC_MSG_SND_ID,
 
-    appId: "1:864882149162:web:02f8aabc3b317f11794053",
+    appId: process.env.NEXT_PUBLIC_APP_ID,
 
-    measurementId: "G-0XKQFYPQZ5"
+    measurementId: process.env.NEXT_PUBLIC_MS_ID
 
 };
 
