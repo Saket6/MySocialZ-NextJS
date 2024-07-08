@@ -132,7 +132,7 @@ function Navbar() {
 
 
   return (
-    <nav className='z-50 p-4 border-b transition-all duration-200 border-zinc-800 sticky lg:top-0 bg-zinc-950 grid grid-cols-3'>
+    <nav className='z-50 p-4 border-b transition-all duration-200 border-zinc-800 sticky top-0 bg-zinc-950 grid grid-cols-3'>
       <Link href='/' className=' text-lg w-fit flex gap-2 items-center md:text-3xl font-bold font-sans'>
         <MessageSquareQuote className='' color='#ff2d52' size={40} />
         <span className='md:block hidden'>
