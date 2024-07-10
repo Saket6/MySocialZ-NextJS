@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react'
-import { Bell, BookmarkCheck, Heart, House, LogOut, User, User2, Users } from 'lucide-react';
+import { Bell, BookmarkCheck, Check, Heart, House, LogOut, User, User2, Users, X } from 'lucide-react';
 import { useUser } from './Auth';
 import {
   DropdownMenu,
@@ -171,11 +171,13 @@ function Navbar() {
                 notifications.map((not, i) => {
                   return (
 
-                    <div key={i} className='flex gap-2 items-center'>
-                      <span> <img src={not?.data?.senderPic} alt="" className='w-10 h-10 rounded-lg' /> </span>
-                      <span className='font-semibold'>{not?.data?.senderName}</span> has sent you follow request.
-                      <button onClick={() => acceptFriendReq(not)} className='p-1 border-2 border-zinc-800 rounded-lg hover:bg-white hover:text-black transition-all duration-150' >Accept</button>
-                      <button onClick={() => rejectFriendReq(not)} className='p-1 border-2 border-zinc-800 rounded-lg hover:bg-red-600  transition-all duration-150' >Reject</button>
+                    <div key={i} className='flex gap-2 md:text-base text-[10px] items-center'>
+                      <span> <img src={not?.data?.senderPic} alt="" className='w-6 h-6 md:w-10 md:h-10 rounded-lg' /> </span>
+                      <span className='font-semibold md:text-base text-xs'>{not?.data?.senderName}  <span className='font-normal'> has sent you follow request.</span></span>
+                      <button onClick={() => acceptFriendReq(not)} className='md:block hidden p-1 border-2 border-zinc-800 rounded-lg hover:bg-white hover:text-black transition-all duration-150' >Accept</button>
+                      <button onClick={() => acceptFriendReq(not)} className='p-1 md:hidden border-2 border-zinc-800 rounded-lg hover:bg-white hover:text-black transition-all duration-150' > <Check size={13}/> </button>
+                      <button onClick={() => rejectFriendReq(not)} className='p-1 md:block hidden border-2 border-zinc-800 rounded-lg hover:bg-red-600  transition-all duration-150' >Reject</button>
+                      <button onClick={() => rejectFriendReq(not)} className='p-1 md:hidden border-2 border-zinc-800 rounded-lg hover:bg-red-600  transition-all duration-150' > <X size={13}/> </button>
                     </div>
 
                   )
