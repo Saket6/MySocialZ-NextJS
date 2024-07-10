@@ -5,6 +5,7 @@ import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { db } from './firebase';
 import { createNotification } from './Notification';
 import { toast } from 'sonner';
+import { Button } from '@/components/ui/button';
 
 function Suggestions({ allUsers }) {
   
@@ -25,8 +26,8 @@ function Suggestions({ allUsers }) {
   }
 
   return (
-    <div className='lg:col-span-3 bg-opacity-30 border-2 lg:block hidden max-h-screen h-max sticky top-6 bg-zinc-900 rounded-xl  p-5'>
-      <h1 className='text-lg lg:text-xl'>Suggestions for you</h1>
+    <div className='lg:col-span-3 bg-opacity-30 border-2 lg:block hidden max-h-screen h-max sticky top-24 bg-zinc-900 rounded-xl  p-5'>
+      <h1 className='text-md font-semibold lg:text-lg'>Who to follow?</h1>
       <div className='p-2 mt-2'>
         {
           allUsers.map((c_user)=>
@@ -34,10 +35,11 @@ function Suggestions({ allUsers }) {
             return (
               <div key={c_user.uid} className='grid grid-cols-12 my-2 gap-2 items-center '>
                 <img src={c_user.photoURL} className='w-10 col-span-2 rounded-full h-10' alt="photo" />
-                <p className='col-span-8'>{c_user.displayName}</p>
-                <span onClick={()=>sendFollowReq(c_user)} className='col-span-2 p-3 w-fit rounded-full hover:bg-zinc-800 cursor-pointer'>
-                  <UserPlus color='#14ff99'/>
-                </span>
+                <p className='col-span-7'>{c_user.displayName}</p>
+                <Button onClick={()=>sendFollowReq(c_user)} className='col-span-2 px-3 rounded-full py-2 w-fit  cursor-pointer'>
+                  Follow
+                  {/* <UserPlus color='black'/> */}
+                </Button>
               </div>
             )
           })
