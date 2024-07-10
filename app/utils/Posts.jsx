@@ -52,14 +52,14 @@ function Posts() {
                         </div>
                         <h2 className=' px-4 md:text-base text-sm'>{post.title}</h2>
                         {post.fileUrl && (
-                            <div className='px-2 pt-3'>
+                            <div className='px-2 pt-3 w-full'>
                                 {post.fileUrl.includes('.mp4') ? (
                                     <video className='rounded-lg' controls>
                                         <source src={post.fileUrl} type="video/mp4" />
                                         Your browser does not support the video tag.
                                     </video>
                                 ) : (
-                                    <img className='rounded-lg' src={post.fileUrl} alt="" />
+                                    <img className='rounded-lg w-full' src={post.fileUrl} alt="" />
                                 )}
                             </div>
                         )}
