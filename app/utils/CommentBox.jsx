@@ -34,7 +34,7 @@ function CommentBox({ post }) {
     }
 
     useEffect(() => {
-        const q = query(collection(db, 'posts', post.id,'comments'),orderBy('createdAt', 'asc'), limit(5));
+        const q = query(collection(db, 'posts', post.id,'comments'),orderBy('createdAt', 'asc'));
         const unsubscribe = onSnapshot(q, (querySnapshot) => {
             const comments = [];
             querySnapshot.forEach((doc) => {
@@ -55,7 +55,7 @@ function CommentBox({ post }) {
                 {/* <Button>Comment</Button> */}
             </div>
 
-            <div className='prevComments'>
+            <div className='prevComments max-h-72 md:max-h-96 overflow-scroll'>
                 {
                     allComments?.map((comment) => (
                         <div key={comment.id} className="p-2 flex gap-3 items-center rounded-full py-2 px-2  text-xs md:text-md ">
